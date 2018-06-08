@@ -1,0 +1,54 @@
+.container{
+    margin-top:20px;
+}
+.req{
+    font-size: 20px;
+    color:red;
+}
+.list{
+background: rgb(191, 232, 245);
+border: 1px;
+}
+.tableHeader{
+    background: rgb(151, 195, 236);
+    margin-top: 15px;
+    height: 40px;
+    line-height: 40px;
+}
+table{
+    border-collapse: collapse;
+    border-radius: 10px;
+    
+}
+
+table, th,td{
+    border: 2px solid rgb(135, 138, 139);
+
+}
+.data{
+    padding:30px;
+}
+#addEditForm{
+    background: rgb(151, 195, 236);
+    margin-top: 15px;
+}
+.delete, .edit{
+    position:relative;
+}
+.delete:after{
+    content: "\f1f8";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+.edit:after{
+    content: "\f040";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+.login-form{
+    width: 500px;
+    border: 1px solid #e6e3e3;
+    padding: 10px;
+}

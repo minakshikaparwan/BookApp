@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div id="Book" class="container">
+        <div id="login"></div>
+        <div id="list"></div>
+        <div id="addEdit"></div>
+        <div id="loginForm"></div>
+    </div>
+    <script src="JS/templat.js"></script>
+    <script src="JS/main.js"></script>
+    <script>
+        $(function(){
+            $('#list').html(listHeaderTemplate);
+            getBookList();
+            $('#Book').click(function(e){
+                if(e.target.id=='loginButton'){
+                    loadLoginForm();
+                };
+                if(e.target.id=='addButtonID'){
+                    loadAddEditForm();
+                }
+                if(e.target.id=='cancelButtonID'){
+                    loadList();
+                }
+                if(e.target.id=='save'){
+                    storeFormData();
+                }
+                if(e.target.className=='edit'){
+                    loadAddEditForm();
+                    var data=e.target.dataset.key
+                    editBookForm(JSON.parse(data));
+                }
+                if(e.target.className=='delete'){
+                    if(confirm("Sure You want to delete ?")){
+                        var key=e.target.dataset.key;
+                        deleteBook(key);
+                    }
+                }
+            })
+            
+        });
+    </script>
+</body>
+</html>
