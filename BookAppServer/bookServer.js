@@ -2,7 +2,8 @@ import express from 'express'
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
-import routes from "./src/router/bookRoute";
+import userRoute from "./UserModule/userRoute";
+import bookRoute from "./BookModule/bookRoute";
 import "babel-polyfill";
 
 let app = express();
@@ -13,8 +14,8 @@ app.use(cors());
 app.use( express.static( path.join( __dirname, '../', 'BookApp') ) );
 app.use(bodyParser.json())
 
-app.use('/',routes);
-
+app.use('/',userRoute);
+app.use('/',bookRoute);
 var server = app.listen(port, ()=> {
     console.log('server started at ' + server.address().port);
 });

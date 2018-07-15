@@ -10,20 +10,31 @@ background: rgb(191, 232, 245);
 border: 1px;
 }
 .tableHeader{
-    background: rgb(151, 195, 236);
+    background:#c2ecf3;
     margin-top: 15px;
     height: 40px;
-    line-height: 40px;
+    line-height: 23px;
 }
 table{
     border-collapse: collapse;
     border-radius: 10px;
     
 }
-
+#tableBody {
+    background: #e4f8fc;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgb(226, 222, 222);
+    
+}
 table, th,td{
     border: 2px solid rgb(135, 138, 139);
 
+}
+.row{
+    padding-top: 9px;
+    margin-left: 0px;
+    margin-right: 0px;
+    
 }
 .data{
     padding:30px;
@@ -47,8 +58,39 @@ table, th,td{
     font-style: normal;
     font-weight: normal;
 }
-.login-form{
-    width: 500px;
+.login-form {
+    width: 900px;
     border: 1px solid #e6e3e3;
     padding: 10px;
+}
+#signUp ,#signIn{
+    height:600px;
+}
+#signUp-form,#signIn-form{
+    border: 1px solid #e6e3e3;
+    border-radius: 16px;
+    background: #9ce6f1;
+}
+.navbar{
+    background: #9cc0ee;
+}
+#form{
+    background: #e8f9fc;
+    margin-top: -14px;
+}
+.error{
+    display:none;
+    color:red; 
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+#msg{
+    padding:0px;
+    display:none;
+    height: 42px;
+    line-height: 42px;
+    font-size: 22px;
+    border: 1px solid #81c590;
+    text-align: center;
 }

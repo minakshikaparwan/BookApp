@@ -16,45 +16,17 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div id="Book" class="container">
-        <div id="login"></div>
-        <div id="list"></div>
-        <div id="addEdit"></div>
-        <div id="loginForm"></div>
+    <div id="bookApp" class="container">
+        <div id="navbar"></div>
+        <div id="form"></div>
+        <div id="bookContent"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="JS/templat.js"></script>
+    <script src="JS/load.js"></script>
+    <script src="JS/book.js"></script>
+    <script src="JS/user.js"></script>
+    <script src="JS/profile.js"></script>
     <script src="JS/main.js"></script>
-    <script>
-        $(function(){
-            $('#list').html(listHeaderTemplate);
-            getBookList();
-            $('#Book').click(function(e){
-                if(e.target.id=='loginButton'){
-                    loadLoginForm();
-                };
-                if(e.target.id=='addButtonID'){
-                    loadAddEditForm();
-                }
-                if(e.target.id=='cancelButtonID'){
-                    loadList();
-                }
-                if(e.target.id=='save'){
-                    storeFormData();
-                }
-                if(e.target.className=='edit'){
-                    loadAddEditForm();
-                    var data=e.target.dataset.key
-                    editBookForm(JSON.parse(data));
-                }
-                if(e.target.className=='delete'){
-                    if(confirm("Sure You want to delete ?")){
-                        var key=e.target.dataset.key;
-                        deleteBook(key);
-                    }
-                }
-            })
-            
-        });
-    </script>
 </body>
 </html>

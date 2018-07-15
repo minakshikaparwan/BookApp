@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
-mongoose.connect('mongodb://localhost/LibDB');
+mongoose.connect('mongodb://localhost/myDB');
 const book = mongoose.Schema;
 const bookSchema = new book({
+    userID:{
+        type:String,
+    },
     bookTitle:{
         type: String,
         required: 'Enter the Book Name.'
@@ -21,11 +24,11 @@ const bookSchema = new book({
         type: String,
     },
     publishDate:{
-        type: String,
+        type: Date,
     },
     price:{
         type: String,
-        required: 'Enter the Password.'
+        required: 'Enter the Price.'
     },
     totalCopies:{
         type: String,
