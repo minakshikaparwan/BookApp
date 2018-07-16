@@ -27,7 +27,7 @@ const userController = {
     const emailID = req.body.emailID;
     users.findOne({ emailID: emailID }).then(function (user) {
       if (!user) {
-        res.send(null);
+        res.send({error:"Invalid user ID"});
       } else {
         var password=req.body.password;
         req.body.password=CryptoJS.SHA256(password+'secret').toString();

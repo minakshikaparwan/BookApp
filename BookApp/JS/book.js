@@ -1,3 +1,16 @@
+var loadProfile=function(){
+  $('#form').empty();
+  $('#bookContent').html(profForm);
+}
+var loadList = function () {
+    $('#form').empty();
+    $('#bookContent').html(listHeaderTemplate);
+    getBookList();
+  }
+var loadAddEditForm = function () {
+  $('#book').empty();
+  $('#book').html(addEditbookTemlate);
+}
 var storeFormData = function () {
     $('#bookErr').empty();
     var bookData = getFormData();
