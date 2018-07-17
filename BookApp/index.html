@@ -27,6 +27,12 @@
     <script src="JS/registrationPage.js"></script>
     <script src="JS/event.js"></script>
     <script src="JS/book.js"></script>
-    <script src="JS/main.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').html(navbar);
+            navEvent();
+            loadLoginForm()
+        });
+    </script>
 </body>
 </html>

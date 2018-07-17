@@ -1,7 +1,3 @@
-var loadProfile=function(){
-  $('#form').empty();
-  $('#bookContent').html(profForm);
-}
 var loadList = function () {
     $('#form').empty();
     $('#bookContent').html(listHeaderTemplate);
