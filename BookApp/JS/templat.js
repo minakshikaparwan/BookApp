@@ -192,54 +192,44 @@ var profForm=`
 <div class="container">
     <h1>Edit Profile</h1>
     <hr>
-    <form class="form-horizontal" method="POST" enctype="multipart/form-data" id="profileForm"role="form">  
+    <form action="http://localhost:3000/addProfile" enctype="multipart/form-data" class="form-horizontal" method="POST"  name="profileForm" id="profileForm" role="form">  
 	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Upload photo...</h6>
-          <input type="file" class="form-control">
-        </div>
-      </div> 
       <!-- edit form column -->
-      <div class="col-md-9">
+      <div class="col-md-9 mx-auto">
         <h3>Personal info</h3>
-        
+        <div class="form-group">
+        <div class="col-lg-8">
+          <input id="image" name="image" class="form-control" type="file" >
+        </div>
+      </div>
           <div class="form-group">
             <label class="col-lg-5 control-label">First name:</label>
             <div class="col-lg-8">
-              <input id="fName" class="form-control" type="text" >
+              <input id="fName" name="fName" class="form-control" type="text" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-5 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input id="lName" class="form-control" type="text" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-5 control-label">Username:</label>
-            <div class="col-md-8">
-              <input id="user"class="form-control" type="text" >
+              <input id="lName" name="lName" class="form-control" type="text" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-5 control-label">DOB:</label>
             <div class="col-md-8">
-              <input id="dob"class="form-control" type="date" >
+              <input id="dob" name="dob" class="form-control" type="date" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-5 control-label">Company:</label>
             <div class="col-lg-8">
-              <input id="company"class="form-control" type="text" >
+              <input id="company" name="company"class="form-control" type="text" >
             </div>
           </div>
           <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input type="button" id="Save_changes"class="btn btn-primary" value="Save Changes">
+            <input type="submit" id="Save_changes"class="btn btn-primary" value="Save Changes">
             <span></span>
             <input type="reset" class="btn btn-default" value="Cancel">
           </div>
@@ -251,4 +241,7 @@ var profForm=`
 <hr>
 `
 
-
+var test=`<form action="http://localhost:3000/addProfile" enctype="application/JSON" method="post">
+<input type="text" name="fName" id="name">
+<input type="submit">
+</form>`

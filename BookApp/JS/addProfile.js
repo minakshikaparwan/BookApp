@@ -1,24 +1,23 @@
 var loadProfileForm=function(){
     $('#form').empty();
     $('#bookContent').html(profForm);
+    // $('#Save_changes').click(()=>{
+    //     addProfile(); 
+    // })
 }
-var addProfile=function(){
-    // var profile={
-    //     fName:$("#fName").val(),
-    //     lName:$("#lName").val(),
-    //     userName:$("#user").val(),
-    //     dob:$("#dob").val(),
-    //     company:$("#company").val()
-    // };
-    var form = $('#profileForm')
-    var data = new FormData(form);
-    $.ajax({
-        url: `http://localhost:3000/addProfile/${userID}`,
-        type: 'POST',
-        enctype: 'multipart/form-data',
-        data: JSON.stringify(data),
-        processData: false,
-        contentType: false,,
-        success: (res) => {
-    }})
-}
+// var addProfile=function(){
+//     var myForm=$("#profileForm")[0];
+//     var formData=new FormData(myForm);
+//     console.log(formData.get("fName"));
+    // var data={"name":"myName"};
+    // formData.append("name","abc");
+    // $.ajax({
+    //     url: 'http://localhost:3000/addProfile',
+    //     type: 'POST',
+    //     data: JSON.stringify(formData.getAll()),
+        // enctype: 'multipart/form-data',
+//         contentType: 'application/json',
+//         success: (res) => {
+//             console.log(res);
+//     }})
+// }
