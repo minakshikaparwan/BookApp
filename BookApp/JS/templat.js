@@ -21,21 +21,21 @@ var navbar=`
   </div>
 </nav>`;
 var listHeaderTemplate =`
-<div id="book">
-  <div class="row tableHeader container">
-    <div class="col-md-2 col-xs-6"><strong>Name</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-    <div class="col-md-2 col-xs-6"><strong>Author</strong>  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-    <div class="col-md-2 col-xs-6"><strong>Publisher</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-    <div class="col-md-2 col-xs-6"><strong>Price</strong>   <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-    <div class="col-md-2 col-xs-6"><strong>Total Copies</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-    <div class="col-md-2 col-xs-6"><strong>Action</strong>  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+  <div id="book" >
+    <div class="row tableHeader">
+      <div class="col-md-2 col-xs-6"><strong>Name</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+      <div class="col-md-2 col-xs-6"><strong>Author</strong>  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+      <div class="col-md-2 col-xs-6"><strong>Publisher</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+      <div class="col-md-2 col-xs-6"><strong>Price</strong>   <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+      <div class="col-md-2 col-xs-6"><strong>Total Copies</strong>    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+      <div class="col-md-2 col-xs-6"><strong>Action</strong>  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+    </div>
+    <div class="row" id="tableBody"> 
+    </div>
+    <div style="margin-top:20px"class=" d-flex justify-content-end">
+      <button type="button" id="addButtonID" class="btn btn-info ">Add Book</button>
+    </div>
   </div>
-  <div class="row" id="tableBody"> 
-  </div>
-  <div style="margin-top:20px"class=" d-flex justify-content-end">
-    <button type="button" id="addButtonID" class="btn btn-info ">Add Book</button>
-  </div>
-</div>
 `;
 
 var addEditbookTemlate = `
@@ -192,7 +192,7 @@ var profForm=`
 <div class="container">
     <h1>Edit Profile</h1>
     <hr>
-    <form action="http://localhost:3000/addProfile" enctype="multipart/form-data" class="form-horizontal" method="POST"  name="profileForm" id="profileForm" role="form">  
+    <form action="http://localhost:3000/" enctype="multipart/form-data" class="form-horizontal" method="POST"  name="profileForm" id="profileForm" role="form">  
 	<div class="row">
       <!-- edit form column -->
       <div class="col-md-9 mx-auto">
@@ -226,6 +226,9 @@ var profForm=`
               <input id="company" name="company"class="form-control" type="text" >
             </div>
           </div>
+          <div>
+          <input id="userID" name="userId"class="form-control" type="text" >
+          </div>
           <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
@@ -245,3 +248,13 @@ var test=`<form action="http://localhost:3000/addProfile" enctype="application/J
 <input type="text" name="fName" id="name">
 <input type="submit">
 </form>`
+
+var a=`
+<div id="userPage" class="row p-0 pt-2">
+  <div id="pro" class="col-md-3 p-0">
+    
+  </div>
+  <div id="book_list" class="col-md-9 pl-4 pt-0 m-0">
+   
+  </div>
+</div>`

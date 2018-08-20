@@ -4,6 +4,9 @@ mongoose.connect('mongodb://localhost/myDB');
 
 const userProfile = mongoose.Schema;
 const profileSchema = {
+    userID:{
+        type:String,
+    },
     image:{
         type:String,
     },

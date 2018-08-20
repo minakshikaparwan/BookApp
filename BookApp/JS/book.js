@@ -1,11 +1,11 @@
 var loadList = function () {
-    $('#form').empty();
-    $('#bookContent').html(listHeaderTemplate);
+    // $('#form').empty();
+   // $('#bookContent').html(listHeaderTemplate);
     getBookList();
   }
 var loadAddEditForm = function () {
-  $('#book').empty();
-  $('#book').html(addEditbookTemlate);
+  //$('#book').empty();
+  $('#bookContent').html(addEditbookTemlate);
 }
 var storeFormData = function () {
     $('#bookErr').empty();
@@ -65,6 +65,8 @@ var storeFormData = function () {
           </div>
          `
     }
+    // var userID=sessionStorage.getItem('userID');
+    // loadProfile(userID);
     $('#tableBody').html(row);
   
   }

@@ -34,7 +34,7 @@ var validateBookData={
       err.push("Auther is required.")
     }
     if (bookData.price.length != 0) {
-      if (!bookData.price.match(/^(\d+\.\d{1,2})?$/)) {
+      if (!bookData.price.match(/^[0-9]+$/)) {
         err.push("Invalid price");
       }
     } else {

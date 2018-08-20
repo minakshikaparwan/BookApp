@@ -1,23 +1,71 @@
-var loadProfileForm=function(){
+var loadProfile=function(userID ){
+    $.ajax({
+        url: `http://localhost:3000/userProfile/${userID}`,
+        type: 'GET',
+        success: (res) => {
+          if(res.length==0){
+            loadProfileForm(userID);
+          }else{
+            userProfile(res);
+          }
+        },
+    });
+}
+var loadProfileForm=function(userID){
     $('#form').empty();
     $('#bookContent').html(profForm);
-    // $('#Save_changes').click(()=>{
-    //     addProfile(); 
-    // })
+    $('#userID').val(userID);
+    $('form#profileForm').submit(function(e){
+        event.preventDefault(); //prevent default action 
+        var post_url = $(this).attr("action"); //get form action url
+        var request_method = $(this).attr("method"); //get form GET/POST method
+        var form_data = new FormData(this); //Creates new FormData object
+        form_data.append("userID",userID);
+        $.ajax({
+            url : post_url,
+            type: request_method,
+            data : form_data,
+            contentType: false,
+            cache: false,
+            processData:false
+        }).done(function(response){ 
+            sessionStorage.setItem('userData', response);
+            userProfile(response);
+        });
+    });
+};
+
+var userProfile=function(data){
+    var profile=`
+    <table>
+        <tr>
+            <td colspan="2">
+            <img src="http://localhost:3000/${data.image}"></td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>${data.fName}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>${data.lName}</td>
+        </tr>
+        <tr>
+            <td>D.O.B</td>
+            <td>${data.dob.substring(0,10)}</td>
+        </tr>
+        <tr>
+            <td>Company</td>
+            <td>${data.company}</td>
+        </tr>
+    </table>    `;
+    var userData=JSON.stringify(data)
+    sessionStorage.setItem('userData', userData);
+    $('#form').empty();
+    $('#bookContent').empty();
+    $('#bookContent').html(a)
+    $('#pro').html(profile);
+    $('#book_list').html(listHeaderTemplate)
+    loadList();
+    
 }
-// var addProfile=function(){
-//     var myForm=$("#profileForm")[0];
-//     var formData=new FormData(myForm);
-//     console.log(formData.get("fName"));
-    // var data={"name":"myName"};
-    // formData.append("name","abc");
-    // $.ajax({
-    //     url: 'http://localhost:3000/addProfile',
-    //     type: 'POST',
-    //     data: JSON.stringify(formData.getAll()),
-        // enctype: 'multipart/form-data',
-//         contentType: 'application/json',
-//         success: (res) => {
-//             console.log(res);
-//     }})
-// }

@@ -29,10 +29,12 @@ const upload = multer({
 // const upload=multer({dest:__dirname + '/uploads/'}); 
 
 
-routes.post('/addProfile',upload.single('image'),(req,res,next)=>{
-    console.log(req.file );
-    res.send("success");
-    userDetailController.addUserDetails(req,res);
+routes
+.post('/',upload.single('image'),(req,res,next)=>{
+  console.log(req.file );
+  userDetailController.addUserDetails(req,res);
 })
-
+.get('/userProfile/:userID',(req,res)=>{
+  userDetailController.getUserDetails(req,res);
+})
 export default routes;

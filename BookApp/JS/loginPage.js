@@ -2,7 +2,7 @@
 var loadLoginForm=function (msg) {
   $('#form').html(userLoginForm);
   if(msg!=null){
-    $('#msg').display('block');
+    $('#msg').css({"display":"block"});
     $('#msg').html(msg);
   }
 	$("#signin").click(function () {
@@ -11,7 +11,7 @@ var loadLoginForm=function (msg) {
 } 
 //-----------------ajax call for signin--------------------
 var userSignIn = function () {
-  $('#loginErr').empty();
+  // $('#loginErr').empty();
   var pasword = $("#password").val();
   if(!pasword==""){
     var pasword=CryptoJS.SHA256(pasword+'sha256').toString();
@@ -31,8 +31,8 @@ var userSignIn = function () {
         $('#login').css({"display":"none"});
         $('#logout').css({"display":"block"});
         sessionStore(res);
-        //loadProfile();
-        loadList();
+        loadProfile(res.userID);
+        //loadList();
       } else {
         showLoginError(res);
       }
@@ -47,6 +47,7 @@ var sessionStore=function(res){
 }
 //------------------error display------------------------------
 var showLoginError=function(err){
+  $('#msg').css({"display":"hidden"});
   $('.error').css({"display":"block"});
 $.each(err,(indx,val)=>{
   var error=`<div class="d-flex justify-content-center">${val}</div>`;

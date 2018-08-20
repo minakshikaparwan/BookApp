@@ -18,13 +18,7 @@
 <body>
     <div id="bookApp" class="container">
         <div id="navbar"></div>
-        <div id="form">
-            <!-- <form action="http://localhost:3000/addProfile" id="uploadForm" enctype="multipart/form-data" method="post">
-                <input type="file" name="userFile" />
-                <input type="text" name="fName">
-                <input type="submit" value="Upload File" name="submit">
-            </form> -->
-        </div>
+        <div id="form"></div>
         <div id="bookContent"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
@@ -36,11 +30,12 @@
     <script src="JS/addProfile.js"></script>
     <script>
         $(function(){
+            bookEvent();
             $('#navbar').html(navbar);
             navEvent();
-            debugger
-            loadProfileForm();
-            // loadLoginForm()
+            //loadProfileForm();
+            
+            loadLoginForm()
         });
     </script>
 </body>

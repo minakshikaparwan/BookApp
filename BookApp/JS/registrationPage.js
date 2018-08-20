@@ -2,9 +2,9 @@
 var loadRegistrationForm = function () {
     $('#form').empty();
     $('#form').html(registerationForm);
+    $("#login").css({"display":"block"});
+    $("#register").css({"display":"none"});
     $("#signup").click(function () {
-      $("#login").css({"display":"block"});
-      $("#register").css({"display":"none"});
       userSignUp();
     })
 }
