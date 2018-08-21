@@ -190,7 +190,7 @@ var stateChange=`<a href="" id="login" class="nav-link">Login</a>`  ;
 
 var profForm=`
 <div class="container">
-    <h1>Edit Profile</h1>
+    <h1>Add Profile</h1>
     <hr>
     <form action="http://localhost:3000/" enctype="multipart/form-data" class="form-horizontal" method="POST"  name="profileForm" id="profileForm" role="form">  
 	<div class="row">
@@ -227,7 +227,7 @@ var profForm=`
             </div>
           </div>
           <div>
-          <input id="userID" name="userId"class="form-control" type="text" >
+          <input id="userID" style="display:none"name="userId"class="form-control" type="text" >
           </div>
           <div class="form-group">
           <label class="col-md-3 control-label"></label>

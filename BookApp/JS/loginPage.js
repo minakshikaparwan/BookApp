@@ -47,10 +47,10 @@ var sessionStore=function(res){
 }
 //------------------error display------------------------------
 var showLoginError=function(err){
-  $('#msg').css({"display":"hidden"});
+  $('#msg').css({"display":"none"});
   $('.error').css({"display":"block"});
 $.each(err,(indx,val)=>{
   var error=`<div class="d-flex justify-content-center">${val}</div>`;
-  $('.error').append(error);
+  $('.error').html(error);
 })
 }
