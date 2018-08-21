@@ -127,9 +127,9 @@ var addEditbookTemlate = `
           </div>                                 
           <div class="form-group">
             <div class="col-lg-12 col-lg-offset-5">
-              <button type="button" class="btn btn-success" id="edit" style="display:none">Update</button>
-              <button  type="button" class="btn btn-default" id="cancel" onclick="window.open('index.html','_self')" >Cancel</button>
+              <button  type="button" class="btn btn-default" id="cancel">Cancel</button>
               <button  type="button" class="btn btn-primary" id="save">Submit</button>
+              <button type="button" class="btn btn-success" id="update" style="display:none">Update</button>
             </div>
           </div>
         </div>             
@@ -243,11 +243,6 @@ var profForm=`
 </div>
 <hr>
 `
-
-var test=`<form action="http://localhost:3000/addProfile" enctype="application/JSON" method="post">
-<input type="text" name="fName" id="name">
-<input type="submit">
-</form>`
 
 var a=`
 <div id="userPage" class="row p-0 pt-2">

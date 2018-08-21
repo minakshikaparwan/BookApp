@@ -1,10 +1,47 @@
+function bookEvent(){
+    $('#bookContent').click(function(e){
+        if(e.target.id=='addButtonID'){
+			beforeLoadView();
+        	loadAddEditForm();
+        }
+        if(e.target.className=='edit'){
+			      beforeLoadView();
+            loadAddEditForm();
+            var data=e.target.dataset.key;
+            editBookForm(JSON.parse(data));
+            $('#update').css({"display":"inline"});
+            $('#save').css({"display":"none"});
+        }
+        if(e.target.className=='delete'){
+    		if(confirm("Sure You want to delete ?")){
+          e.stopImmediatePropagation();
+          var key=e.target.dataset.key;
+          deleteBook(key);
+          
+    		}
+        }
+        if(e.target.id=='cancel'){
+			var userData=sessionStorage.getItem('userData');
+			userProfile(JSON.parse(userData));
+    	}
+    	if(e.target.id=='save'){
+        e.stopImmediatePropagation();
+      storeFormData();
+      var userData=sessionStorage.getItem('userData');
+			userProfile(JSON.parse(userData));
+      }
+      if(e.target.id=='update'){
+        var userID=sessionStorage.getItem('userID');
+        editBookForm(userID);
+      }
+    })
+}
+
 var loadList = function () {
-    // $('#form').empty();
-   // $('#bookContent').html(listHeaderTemplate);
     getBookList();
+    bookEvent();
   }
 var loadAddEditForm = function () {
-  //$('#book').empty();
   $('#bookContent').html(addEditbookTemlate);
 }
 var storeFormData = function () {
@@ -65,10 +102,8 @@ var storeFormData = function () {
           </div>
          `
     }
-    // var userID=sessionStorage.getItem('userID');
-    // loadProfile(userID);
+    console.log($('#tableBody'));
     $('#tableBody').html(row);
-  
   }
   
   var editBookForm = function (data) {
@@ -82,7 +117,7 @@ var storeFormData = function () {
     $('#price').val(data.price);
     $('#total_copies').val(data.totalCopies);
     $('#description').val(data.description);
-    $('#save').click((event) => {
+    $('#update').click((event) => {
       updateBookData(key);
       event.stopImmediatePropagation();
     })
@@ -98,7 +133,9 @@ var storeFormData = function () {
       contentType: 'application/json',
       success: (res) => {
         if(!res){
-          loadList(res);
+          // loadList(res);
+          var userData=sessionStorage.getItem('userData');
+			userProfile(JSON.parse(userData));
         } else{
           console.log(res);
           showBookError(res);

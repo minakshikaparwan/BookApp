@@ -3,7 +3,7 @@ var loadProfile=function(userID ){
         url: `http://localhost:3000/userProfile/${userID}`,
         type: 'GET',
         success: (res) => {
-          if(res.length==0){
+          if(res==null){
             loadProfileForm(userID);
           }else{
             userProfile(res);
@@ -62,10 +62,8 @@ var userProfile=function(data){
     var userData=JSON.stringify(data)
     sessionStorage.setItem('userData', userData);
     $('#form').empty();
-    $('#bookContent').empty();
     $('#bookContent').html(a)
     $('#pro').html(profile);
     $('#book_list').html(listHeaderTemplate)
     loadList();
-    
 }
